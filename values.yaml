@@ -1,0 +1,35 @@
+replicaCount: 4
+
+image:
+  repository: wmadiano/demojwt
+  tag: latest
+  pullPolicy: Always
+
+nameOverride: ""
+fullnameOverride: ""
+
+service:
+  name: api01-service
+  type: ClusterIP
+  port: 80
+  targetPort: 3000
+  protocol: TCP
+
+containerPort: 3000
+
+app:
+  name: api01
+
+
+ingress:
+  enabled: true
+  className: "" # Use this if you need to specify a specific Ingress Class
+  annotations: {}
+  hosts:
+    - host: api.test.com
+      paths:
+        - path: /
+          pathType: Prefix
+  service:
+    name: api01-service
+    port: 80
