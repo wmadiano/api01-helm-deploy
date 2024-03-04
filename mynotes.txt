@@ -8,7 +8,7 @@ helm install first-chart .
 kubectl get cm
 
 #4 upgrade
-helm upgrade first-chart
+helm upgrade api01 .
 
 #5 encode secret to base64 string
 
